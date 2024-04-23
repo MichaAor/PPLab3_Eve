@@ -49,6 +49,9 @@ public class Main {
         exercise4();
     }
 
+//?                       ╔═══════════════╗
+//?                       ║  EJERCICIO 3  ║
+//?                       ╚═══════════════╝
     public static void exercise3(){
         System.out.println("\u001B[36m" + "EJERCICIO 3" + "\u001B[0m");
 
@@ -85,6 +88,10 @@ public class Main {
         System.out.println(order2);
     }
 
+
+//?                       ╔═══════════════╗
+//?                       ║  EJERCICIO 4  ║
+//?                       ╚═══════════════╝
     public static void exercise4(){
         System.out.println("\u001B[36m" + "EJERCICIO 4" + "\u001B[0m");
 

@@ -3,6 +3,7 @@ package Model;
 import java.util.ArrayList;
 import java.util.List;
 
+//! Implemento las entregas y le aplico la logica para cada uno de ellas.
 public class Local implements DeliveryMethod{
     private String name;
     private List<Food> menu;
@@ -61,6 +62,11 @@ public class Local implements DeliveryMethod{
                "\nMenu: " + this.menu.toString();
     }
 
+//? Aplicando la logica para que el LOCAL ejecute la entrega del Delivery a Domicilio.
+//! Se encarga de analizar la orden en caso previo de enviar el pedido, comprobando el tipo de entrega,
+//! la direccion del envio en contraste con la del usuario y la suerte (de esto depende si el pedido llega o no)
+// * Para finalizar agregamos la orden a guardar.
+
     @Override
     public void homeDelivery(Order order) {
         int lucky = (int) (Math.random() * 3 - 1);
@@ -78,6 +84,10 @@ public class Local implements DeliveryMethod{
         }
     }
 
+//? Aplicando la logica para que el LOCAL ejecute la entrega del Take Away.
+//! Se encarga de analizar la orden previo a la entrega en mostrador del pedido.
+//! Comprobamos el estado del pedido, el estado del pago y en base a eso emitimos una respuesta.
+// * Para finalizar agregamos la orden a guardar.
     @Override
     public void takeAway(Order order) {
         if(order.getDelivery().compareTo("Take Away") == 0 && !order.isDelivered()){

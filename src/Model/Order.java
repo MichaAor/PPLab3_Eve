@@ -2,6 +2,7 @@ package Model;
 
 import java.util.List;
 
+//! El pedido contiene toda la informacion compuesta.
 public class Order {
     private int id;
     private User user;
@@ -121,35 +122,38 @@ public class Order {
     public void setTotal(float total) {
         this.total = total;
     }
-
-
+    
 //! Metodos Suport
-
+//? Ejecuto una validacion de pago para la tarjeta de credito usando un numero random (suerte).
+//? En caso de superarlo, cambio el estado de pagado.
     public void validatePaid(){
         int lucky = (int) (Math.random() * 3 - 1);
-        if(this.method.getName().compareTo("Card Pay") ==0 && (lucky == 3)) {
+        if(this.method.getName().compareTo("Card Pay") == 0 && (lucky == 3)) {
             this.paid = true;
         }else{
             this.paid = false;
         }
     }
 
+//? Ejecuto una validacion para la entrega del pedido.
+//? Si ya esta pagado el pedido, podemos cambiar el estado de ela entrega (cuando se requiriese).
     public void validateDelivered(){
         if(this.isPaid()){
             this.delivered = true;
         }
     }
 
+//? Metodo para calcular el subtotal sumando los precios de cadaa plato.
     private void calculateSubtotal(){
         for(Food food : this.foods){
             this.setSubtotal(this.subtotal += food.getPrice());
         }
     }
 
+//? Metodo para calcular el total a partir del sub total pasando por los recargos de los metodos de pago.
     private void calculateTotal(){
         this.setTotal((float) (this.subtotal * this.method.getSurcharge()));
     }
-
 
     @Override
     public String toString() {
