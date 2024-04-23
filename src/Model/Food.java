@@ -1,14 +1,14 @@
+package Model;
+
 public class Food {
     private String name;
     private float price;
-    private FoodCategory foodCategory;
 
     public Food(){}
 
-    public Food(String name, float price, FoodCategory foodCategory) {
+    public Food(String name, float price) {
         this.name = name;
         this.price = price;
-        this.foodCategory = foodCategory;
     }
 
     public String getName() {
@@ -27,11 +27,10 @@ public class Food {
         this.price = price;
     }
 
-    public FoodCategory getFoodCategory() {
-        return foodCategory;
-    }
-
-    public void setFoodCategory(FoodCategory foodCategory) {
-        this.foodCategory = foodCategory;
+    @Override
+    public String toString() {
+        String alignment = "\t\t\t\t\t\t\t\t\t\t";
+    return  "\n" + alignment + "  Name: " + this.name +
+            "\n" + alignment + "  Price: " + this.price;
     }
 }
