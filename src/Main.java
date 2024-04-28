@@ -39,6 +39,7 @@
 */
 
 import Model.*;
+import Model.Simple.*;
 
 import java.util.ArrayList;
 import java.util.List;
